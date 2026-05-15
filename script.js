@@ -1,8 +1,9 @@
-const textElementTR = document.getElementById("typing-text");
-const textElementEN = document.getElementById("typing-text-en");
-
+// Daktilo Animasyonu
 const phraseTR = "Merhaba, Ben Barış, Yazılım Geliştiricisiyim.";
 const phraseEN = "Hi, I am Barış, I am a Software Developer.";
+
+const textElementTR = document.getElementById("typing-text");
+const textElementEN = document.getElementById("typing-text-en");
 
 let i = 0;
 
@@ -17,11 +18,44 @@ function type(element, phrase) {
 window.onload = () => {
     if (textElementTR) type(textElementTR, phraseTR);
     if (textElementEN) type(textElementEN, phraseEN);
+
 };
 
-function showSection(id) {
-    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if(event && event.currentTarget) event.currentTarget.classList.add('active');
+// Modal İşlemleri
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
 }
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+    }
+}
+
+// Scroll Takibi - Menü Aktifliği
+const sections = document.querySelectorAll('.page-section');
+const navLinks = document.querySelectorAll('.nav-links a');
+const contentArea = document.querySelector('.content-area');
+
+contentArea.addEventListener('scroll', () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (contentArea.scrollTop >= (sectionTop - sectionHeight / 3)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
