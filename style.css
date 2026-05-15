@@ -182,46 +182,102 @@ body {
 
 /* 📱 MOBİL GÖRÜNÜM (SORUNSUZ YAPI) 📱 */
 @media (max-width: 768px) {
-    .main-container { flex-direction: column; height: 100dvh; border-radius: 0; width: 100%; border: none; }
-    
-    /* Sidebar'ı yukarıda çok ince ve kullanışlı bir alana çevirdik */
+    /* 1. Ana Konteyner: Kayma sorunlarını engellemek için genişliği %100 yapıp taşmaları gizliyoruz */
+    .main-container {
+        flex-direction: column;
+        height: 100dvh;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        border: none;
+        overflow-x: hidden; 
+    }
+
+    /* 2. Sidebar -> Üst Header'a Dönüşüm: Boşluk sorununu burada çözüyoruz */
     .sidebar { 
-    width: 280px; 
-    padding: 40px 20px; 
-    border-right: 1px solid rgba(255,255,255,0.08); 
-    display: flex; 
-    flex-direction: column; 
-    text-align: center; 
-    position: relative; 
-    z-index: 9999; /* Z-index devasa metinlerin üstüne çıkması için artırıldı */
-}
-    
-    .profile-header { grid-area: profile; text-align: left; }
-    .profile-header h2 { font-size: 1.3rem; margin: 0; }
-    .role-main { font-size: 0.85rem; margin-top: 2px; }
-    .role-sub { display: none; } /* Mobilde yerden tasarruf için gizlendi */
-    
-    .lang-switcher { grid-area: lang; margin: 0; justify-self: end; }
-    .cv-section { display: none; } /* Sidebar'daki CV butonu gizlendi */
-    
-    /* Navigasyon yatay kaydırılabilir oldu */
-    .nav-links { grid-area: nav; display: flex; overflow-x: auto; padding-bottom: 5px; margin: 0; gap: 10px; }
-    .nav-links li { margin: 0; }
-    .nav-links a { white-space: nowrap; font-size: 0.85rem; padding: 8px 12px; }
-    
-    .content-area { padding: 0 20px; }
-    .typing-box { font-size: 1.6rem; min-height: 5rem; margin-bottom: 10px; }
-    
-    .mobile-cv-btn { display: inline-flex; justify-content: center; align-items: center; margin-top: 20px; padding: 12px 30px; font-size: 1rem; width: 100%; }
-    
-    .about-grid, .goals-grid, .tech-grid { grid-template-columns: 1fr; }
-    .main-avatar { margin: 0 auto 20px auto; }
+        width: 100%; 
+        padding: 15px 20px; 
+        border-right: none; 
+        border-bottom: 1px solid rgba(255,255,255,0.08); 
+        display: grid;
+        grid-template-areas: 
+            "profile lang"
+            "nav nav";
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        text-align: left;
+        box-sizing: border-box; /* Padding'in genişliği bozmasını engeller */
+    }
+
+    .profile-header { grid-area: profile; }
+    .profile-header h2 { font-size: 1.2rem; margin: 0; }
+    .role-main { font-size: 0.8rem; margin-top: 2px; }
+    .role-sub { display: none; } 
+
+    /* 3. Dil Seçici: Sağ üst köşeye sabitleme */
     .lang-switcher { 
-        gap: 8px; 
+        grid-area: lang; 
+        margin: 0; 
         padding: 5px;
+        align-self: center;
     }
+
     .lang-btn {
-        font-size: 0.8rem;
-        padding: 6px 14px;
+        font-size: 0.75rem;
+        padding: 5px 12px;
     }
+
+    /* 4. Navigasyon: Yatayda kaydırılabilir, şık bir menü */
+    .nav-links { 
+        grid-area: nav; 
+        display: flex; 
+        overflow-x: auto; 
+        gap: 8px; 
+        padding: 5px 0; 
+        margin: 0;
+        scrollbar-width: none; 
+    }
+    
+    .nav-links::-webkit-scrollbar { display: none; } 
+
+    .nav-links li { margin: 0; }
+    .nav-links a { 
+        white-space: nowrap; 
+        font-size: 0.8rem; 
+        padding: 8px 12px; 
+        background: rgba(122, 162, 247, 0.05);
+    }
+
+    .cv-section { display: none; } 
+
+    /* 5. İçerik Alanı: Padding ayarları */
+    .content-area { 
+        padding: 0 15px; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 6. Hero & Metin: Ekranın taşmasını önlemek için font küçültme */
+    .typing-box { 
+        font-size: 1.5rem; 
+        min-height: 3.5rem; 
+        margin-bottom: 10px; 
+    }
+
+    .mobile-cv-btn { 
+        display: inline-flex; 
+        margin-top: 20px; 
+        width: 100%; 
+        justify-content: center;
+    }
+
+    /* 7. Izgara Yapıları: Tek sütuna düşürme */
+    .about-grid, .goals-grid, .tech-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    
+    .main-avatar { width: 140px; height: 140px; }
+    
+    .goal-card i { font-size: 2rem; }
 }
