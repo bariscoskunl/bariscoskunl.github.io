@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barış Coşkun | Software Developer</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://img.icons8.com/color/48/source-code.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <video autoplay muted loop id="bg-video">
+      <source src="assets/Background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="main-container">
+      <nav class="sidebar">
+        <div class="profile-header">
+          <h2>Barış Coşkun</h2>
+          <span class="role-main">Software Developer</span>
+          <span class="role-sub">Backend</span>
+        </div>
+
+        <div class="lang-switcher">
+          <a href="index.html" class="lang-btn active">TR</a>
+          <a href="en.html" class="lang-btn">EN</a>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="#" class="active" onclick="showSection('hero')"
+              ><i class="fa-solid fa-house"></i> Ana Sayfa</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showSection('hakkimda')"
+              ><i class="fa-solid fa-user"></i> Hakkımda</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showSection('projeler')"
+              ><i class="fa-solid fa-code"></i> Projeler</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showSection('hedefler')"
+              ><i class="fa-solid fa-bullseye"></i> Hedefler</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showSection('sosyal')"
+              ><i class="fa-solid fa-share-nodes"></i> Sosyal Medya</a
+            >
+          </li>
+        </ul>
+
+        <div class="cv-section">
+          <a href="assets/BARIŞ_COŞKUN_CV_TR.pdf" target="_blank" class="cv-btn"
+            ><i class="fa-solid fa-file-pdf"></i> CV İNDİR</a
+          >
+        </div>
+      </nav>
+
+      <main class="content-area">
+        <section id="hero" class="tab-content active center-flex">
+          <div class="typing-box">
+            <h1 id="typing-text"></h1>
+            <span class="cursor">|</span>
+          </div>
+        </section>
+
+        <section id="hakkimda" class="tab-content center-flex">
+          <div class="about-card">
+            <img src="assets/IMG.jpg" alt="Barış Coşkun" class="main-avatar" />
+            <h1>Hakkımda</h1>
+            <p>
+              .NET ekosistemine dair edindiğim bilgi birikimini, bu alandaki
+              uzmanlığımı her geçen gün derinleştirerek daha ileriye taşımayı
+              hedefleyen bir yazılım geliştiricisiyim. Öğrenmeye olan bitmek
+              bilmeyen açlığım ve backend dünyasına duyduğum tutkuyla, sadece
+              mevcut bilgilerimle yetinmiyor; modern mimarileri, ölçeklenebilir
+              altyapıları ve yeni teknolojileri keşfetmek için büyük bir azimle
+              çalışıyorum. Amacım, .NET alanındaki yetkinliğimi en üst seviyeye
+              çıkararak karmaşık problemlere yenilikçi çözümler üreten başarılı
+              bir profesyonel olmaktır.
+            </p>
+          </div>
+        </section>
+
+        <section id="projeler" class="tab-content center-flex">
+          <h1 class="section-title">Projelerim</h1>
+          <div class="projects-grid">
+            <div class="p-card">
+              <div class="p-header">
+                <h3>RecipeShare</h3>
+                <span class="p-tag">.NET 8</span>
+              </div>
+              <p>
+                Web API tabanlı modern lezzet paylaşım platformu. JWT ve AJAX
+                entegrasyonlu dinamik yapı.
+              </p>
+              <div class="p-footer">
+                <a
+                  href="https://github.com/bariscoskunl/RecipeShare"
+                  target="_blank"
+                  ><i class="fa-brands fa-github"></i> GitHub'da Gör</a
+                >
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-header">
+                <h3>FrejSnack</h3>
+                <span class="p-tag">ASP.NET Core</span>
+              </div>
+              <p>
+                Restoran yönetim sistemi. iTextSharp ile raporlama ve session
+                tabanlı akıllı sepet sistemi.
+              </p>
+              <div class="p-footer">
+                <a
+                  href="https://github.com/bariscoskunl/RestaurantApp"
+                  target="_blank"
+                  ><i class="fa-brands fa-github"></i> GitHub'da Gör</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="hedefler" class="tab-content center-flex">
+          <h1 class="section-title">Gelecek Hedeflerim</h1>
+          <div class="goals-container">
+            <div class="goal-item">
+              <i class="fa-solid fa-layer-group"></i>
+              <span
+                >Full-Stack vizyonu için .NET uzmanlığımı <b>React</b> ile
+                güçlendirmek.</span
+              >
+            </div>
+            <div class="goal-item">
+              <i class="fa-solid fa-cloud"></i>
+              <span
+                ><b>Docker</b> ve <b>Azure</b> teknolojilerinde derinleşerek
+                bulut tabanlı mimarilere hakim olmak.</span
+              >
+            </div>
+            <div class="goal-item">
+              <i class="fa-solid fa-robot"></i>
+              <span
+                >Yazılım süreçlerinde <b>Yapay Zeka (AI)</b> araçlarını en
+                verimli şekilde kullanarak modern geliştirme standartlarını
+                yakalamak.</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <section id="sosyal" class="tab-content center-flex">
+          <h1 class="section-title">Bağlantılar</h1>
+          <div class="social-wrapper">
+            <div class="social-item">
+              <a
+                href="https://www.linkedin.com/in/bariscoskun441/"
+                target="_blank"
+                class="pill-btn"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              >
+              <div class="preview-card">
+                <img src="assets/IMG.jpg" alt="Profile" />
+                <div class="preview-info">
+                  <b>Barış Coşkun</b><small>LinkedIn'de Bağlanalım</small>
+                </div>
+              </div>
+            </div>
+            <div class="social-item">
+              <a
+                href="https://github.com/bariscoskunl"
+                target="_blank"
+                class="pill-btn"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+              <div class="preview-card">
+                <img src="https://github.com/bariscoskunl.png" alt="GitHub" />
+                <div class="preview-info">
+                  <b>@bariscoskunl</b><small>Repolarımı İncele</small>
+                </div>
+              </div>
+            </div>
+            <div class="social-item">
+              <a
+                href="https://medium.com/@bariscoskun441"
+                target="_blank"
+                class="pill-btn"
+                ><i class="fa-brands fa-medium"></i> Medium</a
+              >
+              <div class="preview-card">
+                <img src="assets/IMG.jpg" alt="Medium" />
+                <div class="preview-info">
+                  <b>Teknik Yazılar</b><small>Medium'da Takip Et</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="email-footer">bariscoskun441@gmail.com</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
