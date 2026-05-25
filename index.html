@@ -1,201 +1,360 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barış Coşkun | Software Developer</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/source-code.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <video autoplay muted loop playsinline poster="assets/poster.jpg" id="bg-video">
-        <source src="assets/Background.mp4" type="video/mp4">
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://img.icons8.com/color/48/source-code.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="assets/poster.jpg"
+      id="bg-video"
+    >
+      <source src="assets/Background.mp4" type="video/mp4" />
     </video>
 
     <div class="main-container">
-        <nav class="sidebar">
-            <div class="profile-header">
-                <h2>Barış Coşkun</h2>
-                <span class="role-main">Software Developer</span>
-                <span class="role-sub">Backend</span>
+      <nav class="sidebar">
+        <div class="profile-header">
+          <h2>Barış Coşkun</h2>
+          <span class="role-main">Software Developer</span>
+          <span class="role-sub">Backend</span>
+        </div>
+
+        <div class="lang-switcher">
+          <a href="index.html" class="lang-btn active">TR</a>
+          <a href="en.html" class="lang-btn">EN</a>
+          <button id="theme-toggle" class="theme-btn" title="Temayı Değiştir">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="#hero" class="active"
+              ><i class="fa-solid fa-house"></i> Ana Sayfa</a
+            >
+          </li>
+          <li>
+            <a href="#hakkimda"><i class="fa-solid fa-user"></i> Hakkımda</a>
+          </li>
+          <li>
+            <a href="#projeler"><i class="fa-solid fa-code"></i> Projeler</a>
+          </li>
+          <li>
+            <a href="#hedefler"
+              ><i class="fa-solid fa-bullseye"></i> Hedefler</a
+            >
+          </li>
+          <li>
+            <a href="#iletisim"
+              ><i class="fa-solid fa-envelope"></i> İletişim</a
+            >
+          </li>
+        </ul>
+
+        <div class="cv-section">
+          <a href="assets/BARIŞ_COŞKUN_CV_TR.pdf" target="_blank" class="cv-btn"
+            ><i class="fa-solid fa-file-pdf"></i> CV İNDİR</a
+          >
+        </div>
+      </nav>
+
+      <main class="content-area">
+        <section id="hero" class="page-section center-flex">
+          <div class="status-badge">
+            <span class="dot"></span> Yeni projelere açık
+          </div>
+          <div class="typing-box">
+            <h1 id="typing-text"></h1>
+            <span class="cursor">|</span>
+          </div>
+          <a
+            href="assets/BARIŞ_COŞKUN_CV_TR.pdf"
+            target="_blank"
+            class="cv-btn mobile-cv-btn"
+            ><i class="fa-solid fa-file-pdf"></i> CV İNDİR</a
+          >
+
+          <a href="#hakkimda" class="scroll-indicator">
+            <p>Aşağı Kaydır</p>
+            <i class="fa-solid fa-arrow-down-long"></i>
+          </a>
+        </section>
+
+        <section id="hakkimda" class="page-section">
+          <h1 class="section-title">Hakkımda</h1>
+          <div class="about-grid">
+            <div class="about-main">
+              <img
+                src="assets/IMG.jpg"
+                alt="Barış Coşkun"
+                class="main-avatar"
+              />
+              <p>
+                <strong>24 yaşında</strong> bir yazılım geliştiricisi olarak,
+                kendimi her zaman geliştirmeye ve yeniliklere adapte olmaya
+                programladım. Sadece kod yazmakla kalmıyor; verimli,
+                sürdürülebilir ve çözüm odaklı sistemler inşa etme tutkusuyla
+                hareket ediyorum.
+              </p>
             </div>
-
-            <div class="lang-switcher">
-                <a href="index.html" class="lang-btn active">TR</a>
-                <a href="en.html" class="lang-btn">EN</a>
+            <div class="about-features">
+              <div class="feature-item">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                  <h3>Öğrenme Azmi</h3>
+                  <p>
+                    Teknolojinin hızına yetişmek için her gün yeni bir şeyler
+                    öğrenmeyi hayatımın merkezine koyuyorum.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-gears"></i>
+                <div>
+                  <h3>Teknik Yaklaşım</h3>
+                  <p>
+                    .NET ekosisteminde uzmanlaşırken, Clean Code ve N-Tier
+                    mimari prensiplerini her projeme titizlikle uyguluyorum.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-brain"></i>
+                <div>
+                  <h3>Problem Çözme</h3>
+                  <p>
+                    Karmaşık backend problemlerini analiz edip en performanslı
+                    çözümü üretmek en büyük motivasyon kaynağım.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <ul class="nav-links">
-                <li><a href="#hero" class="active"><i class="fa-solid fa-house"></i> Ana Sayfa</a></li>
-                <li><a href="#hakkimda"><i class="fa-solid fa-user"></i> Hakkımda</a></li>
-                <li><a href="#projeler"><i class="fa-solid fa-code"></i> Projeler</a></li>
-                <li><a href="#hedefler"><i class="fa-solid fa-bullseye"></i> Hedefler</a></li>
-                <li><a href="#iletisim"><i class="fa-solid fa-envelope"></i> İletişim</a></li>
-            </ul>
+        <section id="projeler" class="page-section">
+          <h1 class="section-title">Yetenekler & Projeler</h1>
+          <p class="section-slogan">
+            Kullandığım teknolojiler ve ürettiğim sistemler.
+          </p>
 
-            <div class="cv-section">
-                <a href="assets/BARIŞ_COŞKUN_CV_TR.pdf" target="_blank" class="cv-btn"><i class="fa-solid fa-file-pdf"></i> CV İNDİR</a>
+          <div class="tech-grid">
+            <div class="tech-badge">
+              <i class="fa-brands fa-microsoft" style="color: #7aa2f7"></i
+              ><span>C# / .NET</span><span class="tech-level high">İleri</span>
             </div>
-        </nav>
+            <div class="tech-badge">
+              <i class="fa-solid fa-server" style="color: #bb9af7"></i
+              ><span>ASP.NET Core</span
+              ><span class="tech-level high">İleri</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-solid fa-database" style="color: #7aa2f7"></i
+              ><span>SQL Server</span><span class="tech-level mid">Orta</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-solid fa-layer-group" style="color: #bb9af7"></i
+              ><span>Entity Framework</span
+              ><span class="tech-level mid">Orta</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-solid fa-key" style="color: #4ade80"></i
+              ><span>JWT / Auth</span><span class="tech-level high">İleri</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-brands fa-github" style="color: #e2e8f0"></i
+              ><span>Git / GitHub</span><span class="tech-level mid">Orta</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-solid fa-circle-nodes" style="color: #7aa2f7"></i
+              ><span>REST API</span><span class="tech-level high">İleri</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-solid fa-vial" style="color: #ff9e64"></i
+              ><span>Postman</span><span class="tech-level mid">Orta</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-brands fa-html5" style="color: #e06c75"></i
+              ><span>HTML / CSS</span><span class="tech-level mid">Orta</span>
+            </div>
+            <div class="tech-badge">
+              <i class="fa-brands fa-js" style="color: #e5c07b"></i
+              ><span>JavaScript</span><span class="tech-level mid">Orta</span>
+            </div>
+          </div>
 
-        <main class="content-area">
-            
-            <section id="hero" class="page-section center-flex">
-                <div class="status-badge">
-                    <span class="dot"></span> Yeni projelere açık
-                </div>
-                <div class="typing-box">
-                    <h1 id="typing-text"></h1>
-                    <span class="cursor">|</span>
-                </div>
-                <a href="assets/BARIŞ_COŞKUN_CV_TR.pdf" target="_blank" class="cv-btn mobile-cv-btn"><i class="fa-solid fa-file-pdf"></i> CV İNDİR</a>
-                
-                <div class="scroll-indicator">
-                    <p>Aşağı Kaydır</p>
-                    <i class="fa-solid fa-arrow-down-long"></i>
-                </div>
-            </section>
+          <h2 class="projects-sub-title">
+            <i class="fa-solid fa-code"></i> Projelerim
+          </h2>
+          <div class="projects-grid">
+            <div class="p-card">
+              <div class="p-header">
+                <h3>RecipeShare</h3>
+                <span class="p-tag">.NET 8</span>
+              </div>
+              <p>Web API tabanlı modern lezzet paylaşım platformu.</p>
+              <button class="detail-btn" onclick="openModal('modal-recipe')">
+                Detayları Gör
+              </button>
+            </div>
+            <div class="p-card">
+              <div class="p-header">
+                <h3>FrejSnack</h3>
+                <span class="p-tag">ASP.NET Core</span>
+              </div>
+              <p>Restoran yönetim sistemi ve akıllı raporlama modülü.</p>
+              <button class="detail-btn" onclick="openModal('modal-frej')">
+                Detayları Gör
+              </button>
+            </div>
+          </div>
+          <div class="section-footer">
+            <a
+              href="https://github.com/bariscoskunl"
+              target="_blank"
+              class="pill-btn"
+              ><i class="fa-brands fa-github"></i> Tüm Projeleri Gör</a
+            >
+          </div>
+        </section>
 
-            <section id="hakkimda" class="page-section">
-                <h1 class="section-title">Hakkımda</h1>
-                <div class="about-grid">
-                    <div class="about-main">
-                        <img src="assets/IMG.jpg" alt="Barış Coşkun" class="main-avatar">
-                        <p><strong>24 yaşında</strong> bir yazılım geliştiricisi olarak, kendimi her zaman geliştirmeye ve yeniliklere adapte olmaya programladım. Sadece kod yazmakla kalmıyor; verimli, sürdürülebilir ve çözüm odaklı sistemler inşa etme tutkusuyla hareket ediyorum.</p>
-                    </div>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <i class="fa-solid fa-bolt"></i>
-                            <div>
-                                <h3>Öğrenme Azmi</h3>
-                                <p>Teknolojinin hızına yetişmek için her gün yeni bir şeyler öğrenmeyi hayatımın merkezine koyuyorum.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-gears"></i>
-                            <div>
-                                <h3>Teknik Yaklaşım</h3>
-                                <p>.NET ekosisteminde uzmanlaşırken, Clean Code ve N-Tier mimari prensiplerini her projeme titizlikle uyguluyorum.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fa-solid fa-brain"></i>
-                            <div>
-                                <h3>Problem Çözme</h3>
-                                <p>Karmaşık backend problemlerini analiz edip en performanslı çözümü üretmek en büyük motivasyon kaynağım.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section id="hedefler" class="page-section">
+          <h1 class="section-title">Gelecek Hedeflerim</h1>
+          <div class="goals-grid">
+            <div class="goal-card">
+              <i class="fa-solid fa-code-merge"></i>
+              <h3>Teknik Derinlik</h3>
+              <p>
+                .NET uzmanlığımı <b>React</b> ile birleştirerek Full-Stack
+                yetkinliğimi en üst seviyeye taşımak.
+              </p>
+            </div>
+            <div class="goal-card">
+              <i class="fa-solid fa-server"></i>
+              <h3>Mimari & DevOps</h3>
+              <p>
+                <b>Docker</b> ve <b>Azure</b> üzerinde uzmanlaşarak bulut
+                tabanlı mikroservislere hakim olmak.
+              </p>
+            </div>
+            <div class="goal-card">
+              <i class="fa-solid fa-microchip"></i>
+              <h3>Yapay Zeka (AI)</h3>
+              <p>
+                Geliştirme süreçlerime <b>AI araçlarını</b> entegre edip yapay
+                zeka destekli çözümler üretmek.
+              </p>
+            </div>
+            <div class="goal-card">
+              <i class="fa-solid fa-pen-nib"></i>
+              <h3>İçerik Üretimi</h3>
+              <p>
+                Yıl sonuna kadar Medium'da <b>10 teknik makale</b> yayınlamak ve
+                GitHub'a <b>10 tam proje</b> eklemek.
+              </p>
+            </div>
+          </div>
+        </section>
 
-            <section id="projeler" class="page-section">
-                <h1 class="section-title">Yetenekler & Projeler</h1>
-                <p class="section-slogan">Kullandığım teknolojiler ve ürettiğim sistemler.</p>
+        <section id="iletisim" class="page-section center-flex">
+          <h1 class="section-title">Benimle İletişime Geçin</h1>
+          <p class="contact-sub">
+            Yeni projeler, iş fırsatları veya sadece teknoloji üzerine sohbet
+            etmek için mesaj atabilirsiniz.
+          </p>
 
-                <div class="tech-grid">
-                    <div class="tech-badge"><i class="fa-brands fa-microsoft" style="color:#7aa2f7"></i><span>C# / .NET</span><span class="tech-level high">İleri</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-server" style="color:#bb9af7"></i><span>ASP.NET Core</span><span class="tech-level high">İleri</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-database" style="color:#7aa2f7"></i><span>SQL Server</span><span class="tech-level mid">Orta</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-layer-group" style="color:#bb9af7"></i><span>Entity Framework</span><span class="tech-level mid">Orta</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-key" style="color:#4ade80"></i><span>JWT / Auth</span><span class="tech-level high">İleri</span></div>
-                    <div class="tech-badge"><i class="fa-brands fa-github" style="color:#e2e8f0"></i><span>Git / GitHub</span><span class="tech-level mid">Orta</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-circle-nodes" style="color:#7aa2f7"></i><span>REST API</span><span class="tech-level high">İleri</span></div>
-                    <div class="tech-badge"><i class="fa-solid fa-vial" style="color:#ff9e64"></i><span>Postman</span><span class="tech-level mid">Orta</span></div>
-                    <div class="tech-badge"><i class="fa-brands fa-html5" style="color:#e06c75"></i><span>HTML / CSS</span><span class="tech-level mid">Orta</span></div>
-                    <div class="tech-badge"><i class="fa-brands fa-js" style="color:#e5c07b"></i><span>JavaScript</span><span class="tech-level mid">Orta</span></div>
-                </div>
+          <div class="contact-primary">
+            <a href="mailto:bariscoskun441@gmail.com" class="main-contact-btn">
+              <i class="fa-solid fa-paper-plane"></i> Mail Gönder
+            </a>
+          </div>
 
-                <h2 class="projects-sub-title"><i class="fa-solid fa-code"></i> Projelerim</h2>
-                <div class="projects-grid">
-                    <div class="p-card">
-                        <div class="p-header"><h3>RecipeShare</h3><span class="p-tag">.NET 8</span></div>
-                        <p>Web API tabanlı modern lezzet paylaşım platformu.</p>
-                        <button class="detail-btn" onclick="openModal('modal-recipe')">Detayları Gör</button>
-                    </div>
-                    <div class="p-card">
-                        <div class="p-header"><h3>FrejSnack</h3><span class="p-tag">ASP.NET Core</span></div>
-                        <p>Restoran yönetim sistemi ve akıllı raporlama modülü.</p>
-                        <button class="detail-btn" onclick="openModal('modal-frej')">Detayları Gör</button>
-                    </div>
-                </div>
-                <div class="section-footer">
-                    <a href="https://github.com/bariscoskunl" target="_blank" class="pill-btn"><i class="fa-brands fa-github"></i> Tüm Projeleri Gör</a>
-                </div>
-            </section>
-
-            <section id="hedefler" class="page-section">
-                <h1 class="section-title">Gelecek Hedeflerim</h1>
-                <div class="goals-grid">
-                    <div class="goal-card">
-                        <i class="fa-solid fa-code-merge"></i>
-                        <h3>Teknik Derinlik</h3>
-                        <p>.NET uzmanlığımı <b>React</b> ile birleştirerek Full-Stack yetkinliğimi en üst seviyeye taşımak.</p>
-                    </div>
-                    <div class="goal-card">
-                        <i class="fa-solid fa-server"></i>
-                        <h3>Mimari & DevOps</h3>
-                        <p><b>Docker</b> ve <b>Azure</b> üzerinde uzmanlaşarak bulut tabanlı mikroservislere hakim olmak.</p>
-                    </div>
-                    <div class="goal-card">
-                        <i class="fa-solid fa-microchip"></i>
-                        <h3>Yapay Zeka (AI)</h3>
-                        <p>Geliştirme süreçlerime <b>AI araçlarını</b> entegre edip yapay zeka destekli çözümler üretmek.</p>
-                    </div>
-                    <div class="goal-card">
-                        <i class="fa-solid fa-pen-nib"></i>
-                        <h3>İçerik Üretimi</h3>
-                        <p>Yıl sonuna kadar Medium'da <b>10 teknik makale</b> yayınlamak ve GitHub'a <b>10 tam proje</b> eklemek.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="iletisim" class="page-section center-flex">
-                <h1 class="section-title">Benimle İletişime Geçin</h1>
-                <p class="contact-sub">Yeni projeler, iş fırsatları veya sadece teknoloji üzerine sohbet etmek için mesaj atabilirsiniz.</p>
-
-                <div class="contact-primary">
-                    <a href="mailto:bariscoskun441@gmail.com" class="main-contact-btn">
-                        <i class="fa-solid fa-paper-plane"></i> Mail Gönder
-                    </a>
-                </div>
-
-                <div class="contact-socials">
-                    <p>Sosyal Medyada Takip Edin</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/bariscoskun441/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/bariscoskunl" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://medium.com/@bariscoskun441" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
-                    </div>
-                </div>
-                <p class="footer-email">bariscoskun441@gmail.com</p>
-            </section>
-
-        </main>
+          <div class="contact-socials">
+            <p>Sosyal Medyada Takip Edin</p>
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/in/bariscoskun441/"
+                target="_blank"
+                title="LinkedIn"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/bariscoskunl"
+                target="_blank"
+                title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://medium.com/@bariscoskun441"
+                target="_blank"
+                title="Medium"
+                ><i class="fa-brands fa-medium"></i
+              ></a>
+            </div>
+          </div>
+          <p class="footer-email">bariscoskun441@gmail.com</p>
+        </section>
+      </main>
     </div>
 
     <div id="modal-recipe" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-recipe')">&times;</span>
-            <h2>RecipeShare Detayları</h2>
-            <p><strong>Teknolojiler:</strong> .NET 8 Web API, Entity Framework Core, SQL Server, JWT, AJAX</p>
-            <p><strong>Özellikler:</strong> Sayfa yenilenmeden çalışan dinamik yorum sistemi, JWT tabanlı güvenli yetkilendirme ve N-Tier mimari yapısı.</p>
-            <a href="https://github.com/bariscoskunl/RecipeShare" target="_blank" class="cv-btn"><i class="fa-brands fa-github"></i> GitHub'da İncele</a>
-        </div>
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-recipe')">&times;</span>
+        <h2>RecipeShare Detayları</h2>
+        <p>
+          <strong>Teknolojiler:</strong> .NET 8 Web API, Entity Framework Core,
+          SQL Server, JWT, AJAX
+        </p>
+        <p>
+          <strong>Özellikler:</strong> Sayfa yenilenmeden çalışan dinamik yorum
+          sistemi, JWT tabanlı güvenli yetkilendirme ve N-Tier mimari yapısı.
+        </p>
+        <a
+          href="https://github.com/bariscoskunl/RecipeShare"
+          target="_blank"
+          class="cv-btn"
+          ><i class="fa-brands fa-github"></i> GitHub'da İncele</a
+        >
+      </div>
     </div>
 
     <div id="modal-frej" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal-frej')">&times;</span>
-            <h2>FrejSnack Detayları</h2>
-            <p><strong>Teknolojiler:</strong> ASP.NET Core 8.0, Repository Pattern, iTextSharp, EPPlus</p>
-            <p><strong>Özellikler:</strong> PDF ve Excel destekli raporlama modülü, session tabanlı akıllı sepet sistemi ve tam kontrollü yönetici paneli.</p>
-            <a href="https://github.com/bariscoskunl/RestaurantApp" target="_blank" class="cv-btn"><i class="fa-brands fa-github"></i> GitHub'da İncele</a>
-        </div>
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-frej')">&times;</span>
+        <h2>FrejSnack Detayları</h2>
+        <p>
+          <strong>Teknolojiler:</strong> ASP.NET Core 8.0, Repository Pattern,
+          iTextSharp, EPPlus
+        </p>
+        <p>
+          <strong>Özellikler:</strong> PDF ve Excel destekli raporlama modülü,
+          session tabanlı akıllı sepet sistemi ve tam kontrollü yönetici paneli.
+        </p>
+        <a
+          href="https://github.com/bariscoskunl/RestaurantApp"
+          target="_blank"
+          class="cv-btn"
+          ><i class="fa-brands fa-github"></i> GitHub'da İncele</a
+        >
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
