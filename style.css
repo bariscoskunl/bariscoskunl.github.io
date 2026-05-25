@@ -137,6 +137,12 @@ body {
 /* Üst Üste Binmeyi Önleyen Scroll İndikatörü */
 .scroll-indicator { margin-top: 60px; color: #ffffff; font-size: 1.1rem; font-weight: bold; display: flex; flex-direction: column; align-items: center; gap: 10px; animation: bounce 2s infinite; text-shadow: 0 0 10px rgba(255,255,255,0.8);text-decoration: none !important; }
 .scroll-indicator i { font-size: 1.8rem; color: #ffffff; }
+/* Aydınlık Temada "Aşağı Kaydır" Yazı ve Ok Rengi */
+.light-theme .scroll-indicator,
+.light-theme .scroll-indicator i {
+    color: var(--text-bright) !important;
+    text-shadow: none;
+}
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
 /* Hakkımda */
@@ -212,9 +218,9 @@ body {
 .modal-content strong { color: var(--text-bright); }
 .modal-content .cv-btn { margin-top: 25px; display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: auto; padding: 10px 25px; }
 
-/* 📱 MOBİL GÖRÜNÜM (SORUNSUZ YAPI) 📱 */
+/* 📱 MOBİL GÖRÜNÜM 📱 */
 @media (max-width: 768px) {
-    /* 1. Ana Konteyner: Kayma sorunlarını engellemek için genişliği %100 yapıp taşmaları gizliyoruz */
+    /* 1. Ana Konteyner */
     .main-container {
         flex-direction: column;
         height: 100dvh;
@@ -225,7 +231,7 @@ body {
         overflow-x: hidden; 
     }
 
-    /* 2. Sidebar -> Üst Header'a Dönüşüm: Boşluk sorununu burada çözüyoruz */
+    /* 2. Sidebar  */
     .sidebar { 
         width: 100%; 
         padding: 15px 20px; 
@@ -238,7 +244,7 @@ body {
         grid-template-columns: 1fr auto;
         gap: 12px;
         text-align: left;
-        box-sizing: border-box; /* Padding'in genişliği bozmasını engeller */
+        box-sizing: border-box; 
     }
 
     .profile-header { grid-area: profile; }
@@ -246,7 +252,7 @@ body {
     .role-main { font-size: 0.8rem; margin-top: 2px; }
     .role-sub { display: none; } 
 
-    /* 3. Dil Seçici: Sağ üst köşeye sabitleme */
+    /* 3. Dil Seçici*/
     .lang-switcher { 
         grid-area: lang; 
         margin: 0; 
@@ -259,7 +265,7 @@ body {
         padding: 5px 12px;
     }
 
-    /* 4. Navigasyon: Yatayda kaydırılabilir, şık bir menü */
+    /* 4. Navigasyon */
     .nav-links { 
         grid-area: nav; 
         display: flex; 
@@ -282,14 +288,14 @@ body {
 
     .cv-section { display: none; } 
 
-    /* 5. İçerik Alanı: Padding ayarları */
+    /* 5. İçerik Alanı */
     .content-area { 
         padding: 0 15px; 
         width: 100%;
         box-sizing: border-box;
     }
 
-    /* 6. Hero & Metin: Ekranın taşmasını önlemek için font küçültme */
+    /* 6. Hero & Metin */
     .typing-box { 
         font-size: 1.5rem; 
         min-height: 3.5rem; 
@@ -303,7 +309,7 @@ body {
         justify-content: center;
     }
 
-    /* 7. Izgara Yapıları: Tek sütuna düşürme */
+    /* 7. Izgara Yapıları */
     .about-grid, .goals-grid, .tech-grid { 
         grid-template-columns: 1fr; 
         gap: 20px; 

@@ -25,7 +25,7 @@ function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = "flex";
-        document.body.style.overflow = "hidden"; // Arka planın kaymasını engeller
+        document.body.style.overflow = "hidden"; 
     }
 }
 
@@ -71,9 +71,9 @@ if (contentArea) {
         });
     });
 }
+
 // --- Tema (Dark/Light Mode) İşlemleri ---
 const themeToggleBtn = document.getElementById("theme-toggle");
-
 
 if (themeToggleBtn) { 
     const themeIcon = themeToggleBtn.querySelector("i");
@@ -81,7 +81,6 @@ if (themeToggleBtn) {
     // 1. Ziyaretçinin daha önceki tercihini localStorage'dan al
     const currentTheme = localStorage.getItem("theme");
 
-    
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
         themeIcon.classList.replace("fa-moon", "fa-sun"); 
@@ -89,15 +88,14 @@ if (themeToggleBtn) {
 
     // 2. Butona tıklandığında çalışacak olay
     themeToggleBtn.addEventListener("click", () => {
-        
         document.body.classList.toggle("light-theme");
         
-       
         if (document.body.classList.contains("light-theme")) {
             themeIcon.classList.replace("fa-moon", "fa-sun"); 
-            localStorage.setItem("theme", "light"); 
+            localStorage.setItem("theme", "light");             
+        } else {
             themeIcon.classList.replace("fa-sun", "fa-moon"); 
-            localStorage.setItem("theme", "dark"); 
+            localStorage.setItem("theme", "dark");
         }
     });
 }
