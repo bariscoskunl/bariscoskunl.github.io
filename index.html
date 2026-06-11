@@ -257,28 +257,7 @@
           <h2 class="projects-sub-title">
             <i class="fa-solid fa-code"></i> Projelerim
           </h2>
-          <div class="projects-grid">
-            <div class="p-card">
-              <div class="p-header">
-                <h3>RecipeShare</h3>
-                <span class="p-tag">.NET 8</span>
-              </div>
-              <p>Web API tabanlı modern lezzet paylaşım platformu.</p>
-              <button class="detail-btn" onclick="openModal('modal-recipe')">
-                Detayları Gör
-              </button>
-            </div>
-            <div class="p-card">
-              <div class="p-header">
-                <h3>FrejSnack</h3>
-                <span class="p-tag">ASP.NET Core</span>
-              </div>
-              <p>Restoran yönetim sistemi ve akıllı raporlama modülü.</p>
-              <button class="detail-btn" onclick="openModal('modal-frej')">
-                Detayları Gör
-              </button>
-            </div>
-          </div>
+          <div class="projects-grid" id="projects-grid-tr"></div>
           <div class="section-footer">
             <a
               href="https://github.com/bariscoskunl"
@@ -368,47 +347,7 @@
       </main>
     </div>
 
-    <div id="modal-recipe" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-recipe')">&times;</span>
-        <h2>RecipeShare Detayları</h2>
-        <p>
-          <strong>Teknolojiler:</strong> .NET 8 Web API, Entity Framework Core,
-          SQL Server, JWT, AJAX
-        </p>
-        <p>
-          <strong>Özellikler:</strong> Sayfa yenilenmeden çalışan dinamik yorum
-          sistemi, JWT tabanlı güvenli yetkilendirme ve N-Tier mimari yapısı.
-        </p>
-        <a
-          href="https://github.com/bariscoskunl/RecipeShare"
-          target="_blank"
-          class="cv-btn"
-          ><i class="fa-brands fa-github"></i> GitHub'da İncele</a
-        >
-      </div>
-    </div>
-
-    <div id="modal-frej" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-frej')">&times;</span>
-        <h2>FrejSnack Detayları</h2>
-        <p>
-          <strong>Teknolojiler:</strong> ASP.NET Core 8.0, Repository Pattern,
-          iTextSharp, EPPlus
-        </p>
-        <p>
-          <strong>Özellikler:</strong> PDF ve Excel destekli raporlama modülü,
-          session tabanlı akıllı sepet sistemi ve tam kontrollü yönetici paneli.
-        </p>
-        <a
-          href="https://github.com/bariscoskunl/RestaurantApp"
-          target="_blank"
-          class="cv-btn"
-          ><i class="fa-brands fa-github"></i> GitHub'da İncele</a
-        >
-      </div>
-    </div>
+    <div id="modals-container"></div>
 
     <script src="script.js"></script>
   </body>

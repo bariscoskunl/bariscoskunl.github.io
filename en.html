@@ -247,28 +247,7 @@
           <h2 class="projects-sub-title">
             <i class="fa-solid fa-code"></i> My Projects
           </h2>
-          <div class="projects-grid">
-            <div class="p-card">
-              <div class="p-header">
-                <h3>RecipeShare</h3>
-                <span class="p-tag">.NET 8</span>
-              </div>
-              <p>Modern flavor-sharing platform based on Web API.</p>
-              <button class="detail-btn" onclick="openModal('modal-recipe')">
-                View Details
-              </button>
-            </div>
-            <div class="p-card">
-              <div class="p-header">
-                <h3>FrejSnack</h3>
-                <span class="p-tag">ASP.NET Core</span>
-              </div>
-              <p>Restaurant management system and smart reporting module.</p>
-              <button class="detail-btn" onclick="openModal('modal-frej')">
-                View Details
-              </button>
-            </div>
-          </div>
+          <div class="projects-grid" id="projects-grid-en"></div>
           <div class="section-footer">
             <a
               href="https://github.com/bariscoskunl"
@@ -358,48 +337,7 @@
       </main>
     </div>
 
-    <div id="modal-recipe" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-recipe')">&times;</span>
-        <h2>RecipeShare Details</h2>
-        <p>
-          <strong>Technologies:</strong> .NET 8 Web API, Entity Framework Core,
-          SQL Server, JWT, AJAX
-        </p>
-        <p>
-          <strong>Features:</strong> Dynamic comment system working without page
-          refresh, secure authorization based on JWT, and N-Tier architecture.
-        </p>
-        <a
-          href="https://github.com/bariscoskunl/RecipeShare"
-          target="_blank"
-          class="cv-btn"
-          ><i class="fa-brands fa-github"></i> View on GitHub</a
-        >
-      </div>
-    </div>
-
-    <div id="modal-frej" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-frej')">&times;</span>
-        <h2>FrejSnack Details</h2>
-        <p>
-          <strong>Technologies:</strong> ASP.NET Core 8.0, Repository Pattern,
-          iTextSharp, EPPlus
-        </p>
-        <p>
-          <strong>Features:</strong> Reporting module with PDF and Excel
-          support, session-based smart cart system, and fully controlled admin
-          panel.
-        </p>
-        <a
-          href="https://github.com/bariscoskunl/RestaurantApp"
-          target="_blank"
-          class="cv-btn"
-          ><i class="fa-brands fa-github"></i> View on GitHub</a
-        >
-      </div>
-    </div>
+    <div id="modals-container"></div>
 
     <script src="script.js"></script>
   </body>
