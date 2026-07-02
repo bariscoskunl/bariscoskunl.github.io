@@ -194,31 +194,72 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ===== INTERSECTION OBSERVER (Scroll Animations) =====
+let scrollObserver = null;
+
 function initScrollAnimations() {
   const targets = document.querySelectorAll(
-    ".page-section, .about-grid, .feature-item, .p-card, .goal-card, .tech-badge, .stat-item"
+    ".page-section, .about-grid, .feature-item, .p-card, .goal-card, .tech-badge, .stat-item, .contact-form-wrapper"
   );
 
   targets.forEach((el) => el.classList.add("animate-on-scroll"));
   const contentArea = document.querySelector(".content-area");
 
-  const observer = new IntersectionObserver(
+  scrollObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
         }
       });
     },
     {
-      root: contentArea || null, // Otomasyonun scroll hareketini yakalaması için kritik
+      root: contentArea || null,
       threshold: 0.05,
       rootMargin: "0px 0px -10px 0px",
     }
   );
 
-  targets.forEach((el) => observer.observe(el));
+  targets.forEach((el) => scrollObserver.observe(el));
+}
+
+// ===== NAV TRANSITION REPLAY =====
+function initNavTransitions() {
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const contentArea = document.querySelector(".content-area");
+  if (!contentArea) return;
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || !targetId.startsWith("#")) return;
+
+      e.preventDefault();
+
+      const targetSection = document.querySelector(targetId);
+      if (!targetSection) return;
+
+      // Collect all animatable elements inside the target section (and the section itself)
+      const animatables = [targetSection, ...targetSection.querySelectorAll(".animate-on-scroll")];
+
+      // Reset their animation state
+      animatables.forEach((el) => {
+        el.classList.remove("is-visible");
+      });
+
+      // Scroll within content-area (not window)
+      const targetOffset = targetSection.offsetTop;
+      contentArea.scrollTo({ top: targetOffset, behavior: "smooth" });
+
+      // Re-observe after scroll starts so IntersectionObserver triggers the fade-in
+      setTimeout(() => {
+        if (scrollObserver) {
+          animatables.forEach((el) => {
+            scrollObserver.observe(el);
+          });
+        }
+      }, 300);
+    });
+  });
 }
 
 // ===== CLIPBOARD EMAIL + MAILTO HYBRID =====
@@ -279,13 +320,69 @@ function showToast(message) {
   }, 2500);
 }
 
+// ===== CONTACT FORM HANDLING (Formspree) =====
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  const isEN = document.documentElement.lang === "en";
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : "";
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Disable button & show loading
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${isEN ? "Sending..." : "Gönderiliyor..."}`;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        showToast(
+          isEN
+            ? "✓ Message sent successfully!"
+            : "✓ Mesajınız başarıyla gönderildi!"
+        );
+        form.reset();
+      } else {
+        showToast(
+          isEN
+            ? "✗ Failed to send. Please try again."
+            : "✗ Gönderilemedi. Lütfen tekrar deneyin."
+        );
+      }
+    } catch (error) {
+      showToast(
+        isEN
+          ? "✗ Network error. Please try again."
+          : "✗ Bağlantı hatası. Lütfen tekrar deneyin."
+      );
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
+  });
+}
+
 // ===== SCROLL SPY — Active Nav Link =====
 const sections = document.querySelectorAll(".page-section");
-const navLinks = document.querySelectorAll(".nav-links a");
-const contentArea = document.querySelector(".content-area");
+const navLinksAll = document.querySelectorAll(".nav-links a");
+const contentAreaEl = document.querySelector(".content-area");
 
-if (contentArea) {
-  contentArea.addEventListener("scroll", () => {
+if (contentAreaEl) {
+  contentAreaEl.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach((section) => {
@@ -293,12 +390,12 @@ if (contentArea) {
       const sectionHeight = section.clientHeight;
 
       // Ekranda hangi bölümün ağırlıklı olduğunu hesaplar
-      if (contentArea.scrollTop >= sectionTop - sectionHeight / 3) {
+      if (contentAreaEl.scrollTop >= sectionTop - sectionHeight / 3) {
         current = section.getAttribute("id");
       }
     });
 
-    navLinks.forEach((link) => {
+    navLinksAll.forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href").includes(current)) {
         link.classList.add("active");
@@ -335,6 +432,22 @@ if (themeToggleBtn) {
   });
 }
 
+// ===== MOBILE MENU — Scroll active nav into view =====
+function initMobileNavScroll() {
+  const navContainer = document.querySelector(".nav-links");
+  if (!navContainer) return;
+
+  // On nav click, scroll the clicked link into view within the horizontal nav
+  navContainer.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (link) {
+      setTimeout(() => {
+        link.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }, 100);
+    }
+  });
+}
+
 // ===== INIT ON LOAD =====
 window.addEventListener("load", () => {
   // Typing effect
@@ -353,6 +466,15 @@ window.addEventListener("load", () => {
   // Scroll animations (marks elements & starts observer)
   initScrollAnimations();
 
+  // Nav transition replay (re-triggers animations on nav click)
+  initNavTransitions();
+
   // Clipboard email + mailto hybrid
   initClipboardEmail();
+
+  // Contact form (Formspree)
+  initContactForm();
+
+  // Mobile nav auto-scroll
+  initMobileNavScroll();
 });
