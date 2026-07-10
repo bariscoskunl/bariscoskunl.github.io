@@ -106,6 +106,9 @@ function renderProjects(projects, gridId) {
   const modalsContainer = document.getElementById("modals-container");
   if (!grid || !modalsContainer) return;
 
+  const isTR = !!textElementTR;
+  const closeLabel = isTR ? "Kapat" : "Close";
+
   projects.forEach((project, index) => {
     // Create card
     const card = document.createElement("div");
@@ -129,11 +132,11 @@ function renderProjects(projects, gridId) {
     modal.className = "modal";
     modal.innerHTML = `
       <div class="modal-content">
-        <span class="close" data-modal-close="modal-${project.id}">&times;</span>
+        <button type="button" class="close" data-modal-close="modal-${project.id}" aria-label="${closeLabel}">&times;</button>
         <h2>${project.modalTitle}</h2>
-        <p><strong>${textElementTR ? "Teknolojiler" : "Technologies"}:</strong> ${project.tech}</p>
-        <p><strong>${textElementTR ? "Özellikler" : "Features"}:</strong> ${project.features}</p>
-        <a href="${project.github}" target="_blank" class="cv-btn">
+        <p><strong>${isTR ? "Teknolojiler" : "Technologies"}:</strong> ${project.tech}</p>
+        <p><strong>${isTR ? "Özellikler" : "Features"}:</strong> ${project.features}</p>
+        <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="cv-btn">
           <i class="fa-brands fa-github"></i> ${project.btnText}
         </a>
       </div>

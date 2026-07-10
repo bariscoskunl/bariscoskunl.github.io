@@ -18,6 +18,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barış Coşkun | Software Developer</title>
 
+    <!-- SEO: Canonical & Language Alternates -->
+    <link rel="canonical" href="https://bariscoskun.tech/en.html" />
+    <link rel="alternate" hreflang="tr" href="https://bariscoskun.tech/" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://bariscoskun.tech/en.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://bariscoskun.tech/"
+    />
+    <meta name="theme-color" content="#0a0a12" />
+
     <!-- ========================================== -->
     <!-- OPEN GRAPH / SEO / SOSYAL MEDYA ETİKETLERİ -->
     <!-- ========================================== -->
@@ -59,6 +74,13 @@
     />
     <!-- ========================================== -->
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link
       rel="icon"
       type="image/png"
@@ -84,18 +106,25 @@
 
     <div class="main-container">
       <nav class="sidebar">
-        <div class="profile-header">
-          <h2>Barış Coşkun</h2>
-          <span class="role-main">Software Developer</span>
-          <span class="role-sub">Backend</span>
-        </div>
+        <div class="sidebar-top-row">
+          <div class="profile-header">
+            <h2>Barış Coşkun</h2>
+            <span class="role-main">Software Developer</span>
+            <span class="role-sub">Backend</span>
+          </div>
 
-        <div class="lang-switcher">
-          <a href="index.html" class="lang-btn">TR</a>
-          <a href="en.html" class="lang-btn active">EN</a>
-          <button id="theme-toggle" class="theme-btn" title="Change Theme">
-            <i class="fa-solid fa-moon"></i>
-          </button>
+          <div class="lang-switcher">
+            <a href="index.html" class="lang-btn">TR</a>
+            <a href="en.html" class="lang-btn active">EN</a>
+            <button
+              id="theme-toggle"
+              class="theme-btn"
+              title="Change Theme"
+              aria-label="Change Theme"
+            >
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
         </div>
 
         <ul class="nav-links">
@@ -119,7 +148,11 @@
         </ul>
 
         <div class="cv-section">
-          <a href="assets/BARIŞ_COŞKUN_CV_EN.pdf" target="_blank" class="cv-btn"
+          <a
+            href="assets/BARIŞ_COŞKUN_CV_EN.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cv-btn"
             ><i class="fa-solid fa-file-pdf"></i> DOWNLOAD CV</a
           >
         </div>
@@ -129,12 +162,18 @@
         <section id="hero" class="page-section center-flex">
           <div class="status-badge"><span class="dot"></span> Open to Work</div>
           <div class="typing-box">
-            <h1 id="typing-text-en"></h1>
-            <span class="cursor">|</span>
+            <h1>
+              <span class="sr-only"
+                >Hi, I am Barış, I am a Software Developer.</span
+              >
+              <span id="typing-text-en" aria-hidden="true"></span>
+            </h1>
+            <span class="cursor" aria-hidden="true">|</span>
           </div>
           <a
             href="assets/BARIŞ_COŞKUN_CV_EN.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="cv-btn mobile-cv-btn"
             ><i class="fa-solid fa-file-pdf"></i> DOWNLOAD CV</a
           >
@@ -171,6 +210,8 @@
                 src="assets/IMG.jpg"
                 alt="Barış Coşkun"
                 class="main-avatar"
+                loading="lazy"
+                decoding="async"
               />
               <p>
                 As a <strong>24-year-old</strong> software developer, I have
@@ -294,6 +335,7 @@
             <a
               href="https://github.com/bariscoskunl"
               target="_blank"
+              rel="noopener noreferrer"
               class="pill-btn"
               ><i class="fa-brands fa-github"></i> View All Projects</a
             >
@@ -359,6 +401,7 @@
                   id="contact-name"
                   name="name"
                   placeholder="Your name..."
+                  autocomplete="name"
                   required
                 />
               </div>
@@ -369,6 +412,7 @@
                   id="contact-email"
                   name="email"
                   placeholder="example@mail.com"
+                  autocomplete="email"
                   required
                 />
               </div>
@@ -394,18 +438,21 @@
               <a
                 href="https://www.linkedin.com/in/bariscoskun441/"
                 target="_blank"
+                rel="noopener noreferrer"
                 title="LinkedIn"
                 ><i class="fa-brands fa-linkedin"></i>
               </a>
               <a
                 href="https://github.com/bariscoskunl"
                 target="_blank"
+                rel="noopener noreferrer"
                 title="GitHub"
                 ><i class="fa-brands fa-github"></i>
               </a>
               <a
                 href="https://medium.com/@bariscoskun441"
                 target="_blank"
+                rel="noopener noreferrer"
                 title="Medium"
                 ><i class="fa-brands fa-medium"></i>
               </a>
