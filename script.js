@@ -113,7 +113,7 @@ function renderProjects(projects, gridId) {
     // Create card
     const card = document.createElement("div");
     card.className = "p-card animate-on-scroll";
-    card.style.transitionDelay = `${index * 0.1}s`;
+    card.style.animationDelay = `${index * 0.1}s`;
     card.innerHTML = `
       <div class="p-header">
         <h3>${project.title}</h3>
@@ -201,7 +201,7 @@ let scrollObserver = null;
 
 function initScrollAnimations() {
   const targets = document.querySelectorAll(
-    ".page-section, .about-grid, .feature-item, .p-card, .goal-card, .tech-badge, .stat-item, .contact-form-wrapper"
+    ".about-grid, .feature-item, .p-card, .goal-card, .tech-badge, .stat-item, .contact-form-wrapper, .section-title, .section-slogan, .stats-row, .goals-grid, .projects-grid, .projects-sub-title, .contact-socials, .typing-box, .status-badge, .scroll-indicator"
   );
 
   targets.forEach((el) => el.classList.add("animate-on-scroll"));

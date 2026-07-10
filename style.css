@@ -14,6 +14,12 @@
     --font-body: 'Inter', sans-serif;
     --font-display: 'Outfit', sans-serif;
     --font-mono: 'Fira Code', monospace;
+    
+    /* Etkileşim ve Gölgeler (Karanlık Tema) */
+    --focus-glow: rgba(122, 162, 247, 0.4);
+    --inset-shadow: rgba(255, 255, 255, 0.07);
+    --hover-shadow-strong: rgba(122, 162, 247, 0.2);
+    --hover-shadow-light: rgba(122, 162, 247, 0.08);
 }
 .light-theme {
     /* Aydınlık Tema Renkleri */
@@ -29,6 +35,12 @@
     --bg-container: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
     --border-color: rgba(0, 0, 0, 0.1);
     --modal-bg: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    
+    /* Etkileşim ve Gölgeler (Aydınlık Tema) */
+    --focus-glow: rgba(59, 130, 246, 0.4);
+    --inset-shadow: rgba(255, 255, 255, 0.8);
+    --hover-shadow-strong: rgba(59, 130, 246, 0.25);
+    --hover-shadow-light: rgba(59, 130, 246, 0.1);
 }
 
 /* Ekran okuyucular için görsel olarak gizli, erişilebilir metin */
@@ -46,7 +58,7 @@
 
 /* Özel </> İmleci */
 body, html {
-    margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth;
+    margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); scroll-behavior: smooth;
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='6' cy='6' r='4' fill='%237aa2f7' stroke='white' stroke-width='1.5'/%3E%3Ctext x='14' y='22' font-size='16' fill='%237aa2f7' font-family='monospace' font-weight='bold'%3E%26lt;/ %26gt;%3C/text%3E%3C/svg%3E") 6 6, auto;
 }
 h1, h2, h3, .section-title, .typing-box h1, .profile-header h2 {
@@ -81,15 +93,15 @@ body::after {
     background: linear-gradient(
         110deg,
         transparent 25%,
-        rgba(122, 162, 247, 0.04) 37%,
-        rgba(187, 154, 247, 0.06) 50%,
-        rgba(122, 162, 247, 0.04) 63%,
+        rgba(122, 162, 247, 0.06) 37%,
+        rgba(187, 154, 247, 0.09) 50%,
+        rgba(122, 162, 247, 0.06) 63%,
         transparent 75%
     );
     background-size: 400% 100%;
     animation: skeleton-shimmer 2.8s ease-in-out infinite;
     pointer-events: none;
-    transition: opacity 1s ease;
+    transition: opacity 1.2s ease;
 }
 
 body.video-ready::after {
@@ -209,8 +221,20 @@ body {
 .cursor { color: var(--accent); font-weight: 300; animation: blink 1s step-end infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-/* Üst Üste Binmeyi Önleyen Scroll İndikatörü */
-.scroll-indicator { margin-top: 60px; color: #ffffff; font-size: 1.1rem; font-weight: bold; display: flex; flex-direction: column; align-items: center; gap: 10px; animation: bounce 2s infinite; text-shadow: 0 0 10px rgba(255,255,255,0.8);text-decoration: none !important; }
+/* Scroll İndikatörü */
+.scroll-indicator {
+    margin-top: 60px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    text-decoration: none !important;
+}
 .scroll-indicator i { font-size: 1.8rem; color: #ffffff; }
 /* Aydınlık Temada "Aşağı Kaydır" Yazı ve Ok Rengi */
 .light-theme .scroll-indicator,
@@ -218,7 +242,11 @@ body {
     color: var(--text-bright) !important;
     text-shadow: none;
 }
-@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-12px); }
+    60% { transform: translateY(-6px); }
+}
 
 /* Hakkımda */
 .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; margin-top: 30px; }
@@ -329,7 +357,7 @@ body {
     background: var(--glass);
     color: var(--text-bright);
     font-size: 0.95rem;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
     transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
     outline: none;
     box-sizing: border-box;
@@ -366,7 +394,7 @@ body {
     font-weight: bold;
     font-size: 1.05rem;
     border: none;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     margin-top: 8px;
     width: 100%;
@@ -387,9 +415,6 @@ body {
     font-size: 1rem;
 }
 
-/* Eski buton (artık kullanılmıyor ama uyumluluk için tutalım) */
-.main-contact-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%); color: #000; padding: 15px 40px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.main-contact-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(122, 162, 247, 0.45); }
 
 .contact-socials { margin-top: 50px; }
 .contact-socials p { color: var(--text-bright); font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; transition: color 0.3s ease; }
@@ -403,14 +428,22 @@ body {
 /* ===== SCROLL ANIMATIONS (Intersection Observer) ===== */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     will-change: opacity, transform;
 }
 
 .animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: fadeUp 0.7s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== PREMIUM MODAL ANIMATION ===== */
@@ -537,25 +570,25 @@ body {
 
 /* --- KARTLAR İÇİN MALZEME BÜTÜNLÜĞÜ (INSET SHADOW) --- */
 .feature-item, .tech-badge, .p-card, .goal-card, .stat-item, .social-links a {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    box-shadow: inset 0 1px 0 var(--inset-shadow);
 }
 .tech-badge:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 6px 20px rgba(122, 162, 247, 0.2), 0 0 12px rgba(122, 162, 247, 0.08);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 6px 20px var(--hover-shadow-strong), 0 0 12px var(--hover-shadow-light);
 }
 .p-card:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 12px 32px rgba(122, 162, 247, 0.18), 0 0 16px rgba(122, 162, 247, 0.06);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 12px 32px var(--hover-shadow-strong), 0 0 16px var(--hover-shadow-light);
 }
 .goal-card:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 8px 24px rgba(122, 162, 247, 0.15);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 8px 24px var(--hover-shadow-strong);
 }
 .feature-item:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 8px 24px rgba(122, 162, 247, 0.12);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 8px 24px var(--hover-shadow-strong);
 }
 .stat-item:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 6px 18px rgba(122, 162, 247, 0.15);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 6px 18px var(--hover-shadow-strong);
 }
 .social-links a:hover {
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 6px 18px rgba(122, 162, 247, 0.2);
+    box-shadow: inset 0 1px 0 var(--inset-shadow), 0 6px 18px var(--hover-shadow-strong);
 }
 /* ====================================================================
    📱 MOBİL GÖRÜNÜM 📱
@@ -912,28 +945,28 @@ body {
    ==================================================================== */
 
 /* --- KLAVYE ODAĞI (FOCUS-VISIBLE) --- */
-*:focus { outline: none; }
+*:focus { outline: 2px solid var(--accent); outline-offset: 4px; }
+*:focus:not(:focus-visible) { outline: none; }
+
 *:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 4px;
-    box-shadow: 0 0 12px rgba(122, 162, 247, 0.4);
+    box-shadow: 0 0 12px var(--focus-glow);
 }
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
     border-radius: inherit;
 }
 input:focus-visible, textarea:focus-visible {
     outline-offset: 0;
-    box-shadow: 0 0 0 2px var(--accent), 0 0 16px rgba(122, 162, 247, 0.15);
+    box-shadow: 0 0 0 2px var(--accent), 0 0 16px var(--focus-glow);
 }
 
 /* --- BUTON TIKLAMA ETKİLEŞİMLERİ (ACTIVE) --- */
 button:active, .cv-btn:active, .lang-btn:active, .detail-btn:active, .pill-btn:active, .social-links a:active, .form-submit-btn:active {
-    transform: scale(0.94) !important;
-    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: scale(0.94);
 }
 .p-card:active, .goal-card:active, .tech-badge:active {
     transform: translateY(0) scale(0.98);
-    transition: transform 0.1s ease;
 }
 
 /* --- ERİŞİLEBİLİRLİK: HAREKETİ AZALT --- */
@@ -943,14 +976,16 @@ button:active, .cv-btn:active, .lang-btn:active, .detail-btn:active, .pill-btn:a
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        transition-delay: 0s !important;
     }
-    .cursor { animation: none !important; opacity: 1 !important; }
-    .status-badge .dot { animation: none !important; opacity: 1 !important; }
-    .scroll-indicator { animation: none !important; transform: none !important; }
-    body::after { display: none !important; }
     .animate-on-scroll {
         opacity: 1 !important;
         transform: translateY(0) !important;
-        transition: none !important;
+        animation: none !important;
     }
+    .scroll-indicator { animation: none !important; transform: none !important; }
+    .cursor { animation: none !important; opacity: 1 !important; }
+    .status-badge .dot { animation: none !important; opacity: 1 !important; }
+    body::after { display: none !important; }
 }
